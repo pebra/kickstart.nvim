@@ -145,6 +145,7 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+  { 'phaazon/mind.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -287,10 +288,10 @@ vim.keymap.set('n', '<leader>pd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'lua', 'python', 'rust', 'ruby', 'elixir', 'vim' },
+  ensure_installed = { 'lua', 'python', 'rust', 'elixir', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = false,
+  auto_install = true,
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -412,6 +413,10 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
 
+  rust_analyzer = {},
+  ruby_ls = {},
+  elixirls = {},
+  solargraph = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
